@@ -12,14 +12,18 @@ class Solution:
                 stack.pop()
             stack.append(cur)
             cur = cur.next
-        
-        nxt = None
-        while stack:
-            cur = stack.pop()
+        # nxt = stack[0]
+        i = 0
+        new_node = ListNode()
+        cur = stack[0]
+        new_node.next = cur
+        while i < len(stack)-1:
+            cur = stack[i]
+            nxt = stack[i+1]
             cur.next = nxt
-            nxt = cur
+            i += 1
         
-        return cur
+        return new_node.next
 
 
         # stack = []
